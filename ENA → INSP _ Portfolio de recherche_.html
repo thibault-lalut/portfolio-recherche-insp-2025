@@ -1,0 +1,2253 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)file:///C:/Users/Thibault/Downloads/portfolio_ena_insp_v8_1.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENA → INSP : Portfolio de recherche</title>
+    <link href="./ENA → INSP _ Portfolio de recherche_files/css2" rel="stylesheet">
+    <script src="./ENA → INSP _ Portfolio de recherche_files/chart.js.téléchargement"></script>
+    <style>
+        :root {
+            /* Palette administrative sobre */
+            --primary: #3d4f5f;
+            --secondary: #6b7a8a;
+            --text: #2d3a45;
+            --text-light: #5a6978;
+            --white: #ffffff;
+            --light-bg: #f5f6f8;
+            --border: #d4d9de;
+            --hover: rgba(107, 122, 138, 0.08);
+            
+            /* Couleurs graphiques sobres et désaturées */
+            --chart-slate: #6b7a8a;
+            --chart-taupe: #8a7b6b;
+            --chart-mauve: #7a6b8a;
+            --chart-olive: #6b7a6b;
+            --chart-rust: #8a6b6b;
+            --chart-steel: #5a6b7a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8f9fa;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* === HEADER === */
+        .header {
+            background: linear-gradient(135deg, #3d4f5f 0%, #4a5d6d 100%);
+            color: var(--white);
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 8px 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .header h2 {
+            font-size: 1.15rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .header-stat {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 16px 28px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .header-stat:hover {
+            background: rgba(255,255,255,0.18);
+            transform: translateY(-2px);
+        }
+
+        .header-stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .header-stat-label {
+            font-size: 0.8rem;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+
+        .header-meta {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .header-meta-item {
+            text-align: center;
+        }
+
+        .header-meta-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.7;
+        }
+
+        .header-meta-value {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* === NAVIGATION === */
+        .nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            padding: 10px 20px;
+            background: transparent;
+            border: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-item:hover {
+            color: var(--primary);
+            background: var(--hover);
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* === CONTAINER === */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* === SECTIONS === */
+        .section {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid var(--secondary);
+            text-align: center;
+        }
+
+        /* === CARDS === */
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .card p {
+            text-align: justify;
+            margin-bottom: 12px;
+        }
+
+        /* === TABS === */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background: transparent;
+            border: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            position: relative;
+        }
+
+        .tab-btn:hover {
+            color: var(--primary);
+            background: var(--hover);
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* === STATS GRID === */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #6b7a8a 0%, #5a6978 100%);
+            color: var(--white);
+            padding: 24px;
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-3px);
+        }
+
+        .stat-box.alt {
+            background: linear-gradient(135deg, #7a8a8a 0%, #6a7a7a 100%);
+        }
+
+        .stat-box.dark {
+            background: linear-gradient(135deg, #3d4f5f 0%, #4a5d6d 100%);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+
+        /* === CHARTS === */
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 24px 0;
+        }
+
+        .chart-container.large {
+            height: 500px;
+        }
+
+        .chart-container.small {
+            height: 300px;
+        }
+
+        /* === TABLES === */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table tr:hover {
+            background: var(--hover);
+        }
+
+        .data-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        /* === HIGHLIGHT BOX === */
+        .highlight-box {
+            background: var(--light-bg);
+            border-left: 4px solid var(--secondary);
+            padding: 24px 28px;
+            margin: 24px 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .highlight-box p {
+            text-align: justify;
+        }
+
+        .highlight-box.accent {
+            border-left-color: var(--chart-taupe);
+        }
+
+        .highlight-box.doctoral {
+            background: linear-gradient(135deg, #f5f6f8 0%, #eef0f2 100%);
+            border-left-color: var(--primary);
+        }
+
+        /* === ACCORDION === */
+        .accordion {
+            margin: 24px 0;
+        }
+
+        .accordion-item {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background: var(--light-bg);
+            padding: 16px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.2s;
+        }
+
+        .accordion-header:hover {
+            background: #ebedef;
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s ease;
+            font-weight: bold;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 2000px;
+        }
+
+        .accordion-content-inner {
+            padding: 20px;
+            background: var(--white);
+        }
+
+        .accordion-content-inner p {
+            text-align: justify;
+            margin-bottom: 12px;
+        }
+
+        /* === PIPELINE === */
+        .pipeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 32px 0;
+            flex-wrap: wrap;
+        }
+
+        .pipeline-step {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            padding: 20px;
+            background: var(--light-bg);
+            border-radius: 8px;
+            margin: 8px;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .pipeline-step:hover {
+            background: #ebedef;
+            transform: translateY(-2px);
+        }
+
+        .pipeline-step::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .pipeline-step:last-child::after {
+            display: none;
+        }
+
+        .pipeline-step h5 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .pipeline-step p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        /* === TERM BADGES === */
+        .term-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 4px;
+        }
+
+        /* === PERIOD LABELS === */
+        .period-label {
+            font-weight: 600;
+            color: var(--primary);
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--light-bg);
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        /* === HYPOTHESES BLOCKS === */
+        .hypothesis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .hypothesis-card {
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hypothesis-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--secondary);
+        }
+
+        .hypothesis-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 8px 25px rgba(107, 122, 138, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .hypothesis-card.h1::before { background: var(--chart-slate); }
+        .hypothesis-card.h2::before { background: var(--chart-olive); }
+        .hypothesis-card.h3::before { background: var(--chart-mauve); }
+
+        .hypothesis-number {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .hypothesis-card.h1 .hypothesis-number { color: var(--chart-slate); }
+        .hypothesis-card.h2 .hypothesis-number { color: var(--chart-olive); }
+        .hypothesis-card.h3 .hypothesis-number { color: var(--chart-mauve); }
+
+        .hypothesis-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .hypothesis-content {
+            font-size: 0.95rem;
+            color: var(--text);
+            text-align: justify;
+            margin-bottom: 16px;
+        }
+
+        .hypothesis-indicators {
+            background: var(--light-bg);
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* === COMPARISON GRID === */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .comparison-box {
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            transition: all 0.2s;
+        }
+
+        .comparison-box:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .comparison-box h4 {
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+            font-weight: 700;
+        }
+
+        .comparison-box.old {
+            border-top: 4px solid var(--secondary);
+        }
+
+        .comparison-box.old h4 {
+            color: var(--secondary);
+        }
+
+        .comparison-box.new {
+            border-top: 4px solid var(--primary);
+        }
+
+        .comparison-box.new h4 {
+            color: var(--primary);
+        }
+
+        .comparison-box ul {
+            margin-left: 20px;
+        }
+
+        .comparison-box li {
+            margin-bottom: 8px;
+        }
+
+        /* === TIMELINE === */
+        .timeline {
+            position: relative;
+            padding-left: 32px;
+            margin: 24px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--secondary), var(--primary));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 24px;
+            padding-left: 24px;
+            transition: all 0.2s;
+        }
+
+        .timeline-item:hover {
+            background: var(--hover);
+            margin-left: -8px;
+            padding-left: 32px;
+            border-radius: 8px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            background: var(--white);
+            border: 3px solid var(--secondary);
+            border-radius: 50%;
+            transition: all 0.2s;
+        }
+
+        .timeline-item:hover::before {
+            left: -40px;
+        }
+
+        .timeline-item.highlight::before {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            margin: 4px 0;
+        }
+
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        /* === INTERACTIVE BLOCKS === */
+        .interactive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .interactive-block {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .interactive-block:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 8px 25px rgba(107, 122, 138, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .interactive-block h5 {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .interactive-block p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .interactive-block .value {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        /* === FOOTER === */
+        .footer {
+            background: linear-gradient(135deg, #3d4f5f 0%, #4a5d6d 100%);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer a {
+            color: #aab7c4;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.6rem;
+            }
+
+            .comparison-grid, .hypothesis-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .pipeline-step::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-badge">Portfolio de recherche – Master 2 Sociologie EHESS</div>
+        <h1 style="font-size: 1.8rem; margin-bottom: 12px;">Des énarques aux administrateurs d'État</h1>
+        <h1 style="font-size: 1.8rem; font-weight: 400; opacity: 0.95; margin-bottom: 32px; max-width: 900px; margin-left: auto; margin-right: auto;">Recomposition institutionnelle et redéfinition des savoirs entre l'ENA et l'INSP (1945–2025)</h1>
+        
+        <div class="header-stats">
+            <div class="header-stat">
+                <span class="header-stat-value">31 465</span>
+                <span class="header-stat-label">Documents analysés</span>
+            </div>
+            <div class="header-stat">
+                <span class="header-stat-value">115 168</span>
+                <span class="header-stat-label">URLs archivées</span>
+            </div>
+            <div class="header-stat">
+                <span class="header-stat-value">17</span>
+                <span class="header-stat-label">Entretiens réalisés</span>
+            </div>
+            <div class="header-stat">
+                <span class="header-stat-value">327</span>
+                <span class="header-stat-label">Élèves sociographiés</span>
+            </div>
+        </div>
+
+        <div class="header-meta">
+            <div class="header-meta-item">
+                <span class="header-meta-label">Auteur</span>
+                <span class="header-meta-value">Thibault Lalut</span>
+            </div>
+            <div class="header-meta-item">
+                <span class="header-meta-label">Direction</span>
+                <span class="header-meta-value">François Denord (CESSP-CNRS)</span>
+            </div>
+            <div class="header-meta-item">
+                <span class="header-meta-label">Institution</span>
+                <span class="header-meta-value">EHESS, Campus Condorcet</span>
+            </div>
+            <div class="header-meta-item">
+                <span class="header-meta-label">Soutenance</span>
+                <span class="header-meta-value">10 juin 2025</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="nav">
+        <div class="nav-content">
+            <button class="nav-item" onclick="showSection(&#39;presentation&#39;)">1. Présentation</button>
+            <button class="nav-item" onclick="showSection(&#39;problematique&#39;)">2. Problématique</button>
+            <button class="nav-item" onclick="showSection(&#39;lexicometrie&#39;)">3. Lexicométrie</button>
+            <button class="nav-item" onclick="showSection(&#39;sociographie&#39;)">4. Sociographie</button>
+            <button class="nav-item" onclick="showSection(&#39;concours&#39;)">5. Concours</button>
+            <button class="nav-item active" onclick="showSection(&#39;conclusion&#39;)">6. Conclusion</button>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="container">
+        
+        <!-- SECTION 1: PRÉSENTATION -->
+        <section id="presentation" class="section">
+            <h2 class="section-title">Présentation de la recherche</h2>
+            
+            <div class="card">
+                <h3 class="card-title">Objet de recherche</h3>
+                <p>La suppression de l'École Nationale d'Administration (ENA) et son remplacement par l'Institut National du Service Public (INSP) en janvier 2022 constitue un objet éminemment fécond pour l'analyse sociologique. Derrière cette mesure politique, inscrite dans le prolongement des réformes de la fonction publique et en réponse aux tensions révélées par la crise des Gilets Jaunes, subsiste l'interrogation sur ce qui, entre les deux institutions, relève d'un véritable changement et ce qui, au contraire, perdure.</p>
+                <p>Cette recherche met en lumière les coulisses d'un moment de transition, sans chercher à opposer réforme réelle et réforme simulée. La réflexion s'articule notamment autour des déplacements qu'opère une telle mutation dans les manières de <strong>choisir</strong>, de <strong>former</strong> et d'<strong>orienter</strong> celles et ceux à qui l'on confie les rouages de l'État.</p>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Méthodologie multi-prismatique</h3>
+                
+                <div class="pipeline">
+                    <div class="pipeline-step">
+                        <h5>1. Collecte</h5>
+                        <p>Web scraping via Wayback Machine</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <h5>2. Extraction</h5>
+                        <p>Filtrage et dédoublonnage</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <h5>3. Traitement</h5>
+                        <p>Lemmatisation et normalisation</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <h5>4. Analyse</h5>
+                        <p>Lexicométrie et statistiques</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <h5>5. Visualisation</h5>
+                        <p>Graphiques et synthèses</p>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-value">115 168</span>
+                        <span class="stat-label">URLs archivées</span>
+                    </div>
+                    <div class="stat-box alt">
+                        <span class="stat-value">31 465</span>
+                        <span class="stat-label">Documents analysés</span>
+                    </div>
+                    <div class="stat-box dark">
+                        <span class="stat-value">27 ans</span>
+                        <span class="stat-label">Période couverte (1998-2025)</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">5</span>
+                        <span class="stat-label">Périodes chronologiques</span>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Spécificités du corpus</h4>
+                    <p>L'analyse porte exclusivement sur des <strong>productions officielles</strong> : communiqués, rapports, discours, notes publiques et documents de présentation. Les fréquences sont <strong>normalisées à 10 000 mots</strong> pour permettre les comparaisons diachroniques. Un travail de lemmatisation assure le regroupement des variantes grammaticales d'un même terme.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: PROBLÉMATIQUE -->
+        <section id="problematique" class="section">
+            <h2 class="section-title">Problématique et hypothèses</h2>
+
+            <div class="card">
+                <h3 class="card-title">Problématique centrale</h3>
+                <div class="highlight-box" style="border-left-color: var(--primary); background: linear-gradient(135deg, #f0f2f5 0%, #e8eaed 100%);">
+                    <p style="font-size: 1.1rem; font-weight: 500; line-height: 1.8;"><strong>Cette reconfiguration marque-t-elle une rupture effective dans les logiques de sélection et de formation des hauts fonctionnaires français, ou perpétue-t-elle, sous un habillage rénové, les mécanismes historiques de reproduction sociale en les adaptant aux impératifs contemporains de l'action publique ?</strong></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Question de recherche</h3>
+                <div class="highlight-box">
+                    <p><strong>Comment une institution censée incarner la permanence de l'État peut-elle se réinventer sans renier sa fonction historique de formation des élites administratives ?</strong></p>
+                    <p style="margin-top: 12px;">Entre rupture et continuité, la transition ENA-INSP offre un observatoire privilégié des procédés complexes par lesquels les institutions se transforment pour mieux persister, via des « stratégies de reconversion » maintenant la position relative dans l'espace social.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Hypothèses de recherche</h3>
+                <p style="margin-bottom: 20px;">Trois hypothèses structurent notre enquête, chacune visant à saisir une dimension spécifique de la recomposition institutionnelle.</p>
+                
+                <div class="hypothesis-grid">
+                    <div class="hypothesis-card h1">
+                        <div class="hypothesis-number">Hypothèse 1</div>
+                        <div class="hypothesis-title">Diversification contrôlée des profils</div>
+                        <div class="hypothesis-content">
+                            La transformation ENA → INSP introduit bien des ajustements dans le recrutement (rééquilibrage des voies d'accès, diversification sociale revendiquée), mais ceux-ci demeurent encadrés par la permanence des filtres classiques de sélection.
+                        </div>
+                        <div class="hypothesis-indicators">
+                            <em>Validation :</em> Enquête quantitative sur la composition sociologique des promotions ; entretiens avec la direction.
+                        </div>
+                    </div>
+
+                    <div class="hypothesis-card h2">
+                        <div class="hypothesis-number">Hypothèse 2</div>
+                        <div class="hypothesis-title">Innovation pédagogique de surface</div>
+                        <div class="hypothesis-content">
+                            Les réformes pédagogiques (approche par compétences, tronc commun inter-écoles) relèvent d'adaptations formelles plutôt que d'une refonte en profondeur de l'expérience étudiante. L'importation du référentiel de compétences traduit moins une révolution pédagogique qu'une mise en conformité avec les standards internationaux du New Public Management.
+                        </div>
+                        <div class="hypothesis-indicators">
+                            <em>Validation :</em> Analyse des référentiels et maquettes pédagogiques ; focus groups et questionnaires auprès des élèves des promotions de transition.
+                        </div>
+                    </div>
+
+                    <div class="hypothesis-card h3">
+                        <div class="hypothesis-number">Hypothèse 3</div>
+                        <div class="hypothesis-title">Persistance des logiques élitaires</div>
+                        <div class="hypothesis-content">
+                            Malgré le laboratoire rhétorique de l'INSP, subsistent – sous des formes reconfigurées – les mécanismes centraux de reproduction. La suppression annoncée du classement de sortie constitue le test décisif.
+                        </div>
+                        <div class="hypothesis-indicators">
+                            <em>Validation :</em> Triangulation : lexicométrie diachronique (1997-2024) ; statistiques sur les débouchés ; entretiens semi-directifs.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: LEXICOMÉTRIE -->
+        <section id="lexicometrie" class="section">
+            <h2 class="section-title">Analyse lexicométrique (ENA → INSP)</h2>
+
+            <div class="tabs">
+                <button class="tab-btn" onclick="openTab(event, &#39;tab-corpus&#39;)">Corpus</button>
+                <button class="tab-btn" onclick="openTab(event, &#39;tab-termes&#39;)">Termes clés</button>
+                <button class="tab-btn active" onclick="openTab(event, &#39;tab-groupes&#39;)">Groupes conceptuels</button>
+                <button class="tab-btn" onclick="openTab(event, &#39;tab-architecture&#39;)">Architecture numérique</button>
+            </div>
+
+            <div id="tab-corpus" class="tab-content">
+                <div class="card">
+                    <h3 class="card-title">Corpus et protocole méthodologique</h3>
+                    
+                    <div class="interactive-grid">
+                        <div class="interactive-block">
+                            <div class="value">115 168</div>
+                            <h5>URLs archivées</h5>
+                            <p>Collecte via la Wayback Machine sur les domaines ena.fr et insp.gouv.fr</p>
+                        </div>
+                        <div class="interactive-block">
+                            <div class="value">31 465</div>
+                            <h5>Documents analysés</h5>
+                            <p>Après filtrage des pages techniques et dédoublonnage</p>
+                        </div>
+                        <div class="interactive-block">
+                            <div class="value">27 ans</div>
+                            <h5>Période couverte</h5>
+                            <p>De 1998 (premières archives) à 2025</p>
+                        </div>
+                        <div class="interactive-block">
+                            <div class="value">5</div>
+                            <h5>Périodes chronologiques</h5>
+                            <p>Séquences définies selon les inflexions institutionnelles</p>
+                        </div>
+                    </div>
+
+                    <h4 style="margin: 24px 0 16px; color: var(--primary);">Périodisation : 5 séquences chronologiques</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Période</th>
+                                <th>Années</th>
+                                <th>Caractéristiques</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="period-label">Période 1</span></td>
+                                <td>1998-2005</td>
+                                <td>Débats sur la démocratisation de l'ENA</td>
+                            </tr>
+                            <tr>
+                                <td><span class="period-label">Période 2</span></td>
+                                <td>2005-2018</td>
+                                <td>Remise en cause progressive de l'institution</td>
+                            </tr>
+                            <tr>
+                                <td><span class="period-label">Période 3</span></td>
+                                <td>2018-2019</td>
+                                <td>Crise des Gilets jaunes et accélération des critiques</td>
+                            </tr>
+                            <tr>
+                                <td><span class="period-label">Période 4</span></td>
+                                <td>2019-2022</td>
+                                <td>Réforme annoncée et phase de transition</td>
+                            </tr>
+                            <tr>
+                                <td><span class="period-label">Période 5</span></td>
+                                <td>2022-2025</td>
+                                <td>Mise en place et consolidation de l'INSP</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="accordion">
+                        <div class="accordion-item active">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>Détails techniques du protocole</span>
+                                <span class="accordion-icon">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p><strong>Lemmatisation :</strong> Regroupement des variantes grammaticales et morphologiques pour ramener chaque mot à sa forme canonique (ex : « innover », « innovation », « innovant » → « innovation »).</p>
+                                    <p><strong>Normalisation :</strong> Expression des fréquences pour 10 000 mots afin de permettre les comparaisons entre périodes de volumes textuels différents.</p>
+                                    <p><strong>Filtrage :</strong> Exclusion des pages techniques (CSS, JavaScript, images) et conservation uniquement des contenus institutionnels produits par l'ENA/INSP.</p>
+                                    <p><strong>Validation :</strong> Vérification manuelle d'un échantillon de 500 documents pour s'assurer de la pertinence du corpus.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-termes" class="tab-content">
+                <div class="card">
+                    <h3 class="card-title">Évolution des termes clés</h3>
+                    <p style="text-align: center; margin-bottom: 16px;">Quatre termes ont été sélectionnés pour leur caractère stratégique dans la transformation institutionnelle :</p>
+                    
+                    <div style="display: flex; justify-content: center; gap: 8px; margin: 16px 0; flex-wrap: wrap;">
+                        <span class="term-badge" style="background-color: #6b7a6b;">compétences</span>
+                        <span class="term-badge" style="background-color: #6b7a8a;">concours</span>
+                        <span class="term-badge" style="background-color: #8a7b6b;">élite</span>
+                        <span class="term-badge" style="background-color: #7a6b8a;">innovation</span>
+                    </div>
+
+                    <div class="chart-container large">
+                        <canvas id="chartTermesCles" height="500" style="display: block; box-sizing: border-box; height: 500px; width: 1254px;" width="1254"></canvas>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-item active">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>Analyse détaillée : « compétences »</span>
+                                <span class="accordion-icon">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>L'innovation lexicale la plus spectaculaire concerne le terme <strong>« compétences »</strong>. Son explosion après 2021 (passant de moins de 1 à près de 7 occurrences pour 10 000 mots) témoigne de l'adoption explicite du référentiel managérial au cœur de la pédagogie INSP.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item active">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>Analyse détaillée : « concours »</span>
+                                <span class="accordion-icon">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>La remarquable persistance du terme <strong>« concours »</strong> tout au long de la période témoigne de la stabilité d'un pilier central du système de sélection. Les concours ont connu des ajustements significatifs, sans remise en cause de leur existence.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item active">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>Analyse détaillée : « élite »</span>
+                                <span class="accordion-icon">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>La quasi-disparition du mot <strong>« élite »</strong> dans le discours de l'INSP (passant de 2,6 à 0,2 occurrences pour 10 000 mots) suggère une stratégie de mise à distance du vocabulaire traditionnel.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item active">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>Analyse détaillée : « innovation »</span>
+                                <span class="accordion-icon">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Le terme <strong>« innovation »</strong> connaît une montée progressive, culminant dans la période INSP. Cette évolution illustre l'intégration croissante d'un vocabulaire managérial et entrepreneurial.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-groupes" class="tab-content active">
+                <div class="card">
+                    <h3 class="card-title">Groupes conceptuels</h3>
+                    <p style="text-align: justify;">Les termes ont été regroupés en quatre ensembles thématiques. Le graphique présente l'évolution de la fréquence cumulée normalisée (somme des occurrences pour 10 000 mots) de chaque groupe conceptuel.</p>
+
+                    <div class="interactive-grid" style="margin: 16px 0;">
+                        <div class="interactive-block" style="text-align: center;">
+                            <h5 style="color: #8a7b6b;">Élitaire et Sélection</h5>
+                            <p>élite, classement, méritocratie, excellence, sélection, hiérarchie, grands corps</p>
+                        </div>
+                        <div class="interactive-block" style="text-align: center;">
+                            <h5 style="color: #6b7a8a;">Managérial et Moderne</h5>
+                            <p>compétences, management, innovation, performance, gouvernance, pilotage</p>
+                        </div>
+                        <div class="interactive-block" style="text-align: center;">
+                            <h5 style="color: #6b7a6b;">Ouverture et Diversité</h5>
+                            <p>diversité, inclusion, égalité, ouverture, territoire, proximité</p>
+                        </div>
+                        <div class="interactive-block" style="text-align: center;">
+                            <h5 style="color: #7a6b8a;">Continuité Institutionnelle</h5>
+                            <p>État, service public, formation, concours, administration, République</p>
+                        </div>
+                    </div>
+
+                    <div class="chart-container large">
+                        <canvas id="chartGroupesConceptuels" height="500" style="display: block; box-sizing: border-box; height: 500px; width: 1254px;" width="1254"></canvas>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>Observation clé</h4>
+                        <p>Le vocabulaire managérial (compétences, diversité, management) connaît une croissance exponentielle à partir de 2019, anticipant la réforme formelle de 2022. Parallèlement, le vocabulaire élitaire décline fortement après la création de l'INSP.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-architecture" class="tab-content">
+                <div class="card">
+                    <h3 class="card-title">Architecture numérique des sites</h3>
+                    <p style="text-align: justify;">L'analyse de l'architecture des sites web institutionnels révèle les priorités communicationnelles. Le graphique présente la visibilité relative de chaque rubrique.</p>
+
+                    <div class="chart-container">
+                        <canvas id="chartArchitecture" height="400" style="display: block; box-sizing: border-box; height: 400px; width: 1254px;" width="1254"></canvas>
+                    </div>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-box old">
+                            <h4>Site ENA (2010-2021)</h4>
+                            <ul>
+                                <li>Structure centrée sur la scolarité et les concours</li>
+                                <li>Rubrique « Classement » très visible</li>
+                                <li>Présentation des grands corps</li>
+                                <li>Accent sur la tradition et l'excellence</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-box new">
+                            <h4>Site INSP (2022-2025)</h4>
+                            <ul>
+                                <li>Architecture orientée « compétences »</li>
+                                <li>Mise en avant des partenariats internationaux</li>
+                                <li>Rubrique « Diversité » prominente</li>
+                                <li>Disparition des références aux grands corps</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: SOCIOGRAPHIE -->
+        <section id="sociographie" class="section">
+            <h2 class="section-title">Sociographie des élèves</h2>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab(event, &#39;tab-population&#39;)">Population</button>
+                <button class="tab-btn" onclick="openTab(event, &#39;tab-origines&#39;)">Origines scolaires</button>
+                <button class="tab-btn" onclick="openTab(event, &#39;tab-experience&#39;)">Expérience pro.</button>
+                <button class="tab-btn" onclick="openTab(event, &#39;tab-affectations&#39;)">Affectations</button>
+            </div>
+
+            <div id="tab-population" class="tab-content active">
+                <div class="card">
+                    <h3 class="card-title">Population étudiée</h3>
+                    <p style="text-align: justify;">Analyse sociographique des élèves issus des concours nationaux des quatre promotions INSP (2022-2025), représentant <strong>327 élèves</strong>. Parmi eux, 93,7% disposaient d'un profil LinkedIn, permettant l'analyse de <strong>306 profils</strong> pour constituer une base de données sociographique approfondie. Ces données ont été complétées par les informations accessibles via LesBiographies.com.</p>
+
+                    <div class="interactive-grid">
+                        <div class="interactive-block">
+                            <div class="value">327</div>
+                            <h5>Élèves totaux</h5>
+                            <p>4 promotions INSP (2022-2025)</p>
+                        </div>
+                        <div class="interactive-block">
+                            <div class="value">306</div>
+                            <h5>Profils LinkedIn</h5>
+                            <p>93,7% de couverture</p>
+                        </div>
+                        <div class="interactive-block">
+                            <div class="value">41,3%</div>
+                            <h5>Femmes</h5>
+                            <p>Moyenne sur 4 promotions</p>
+                        </div>
+                        <div class="interactive-block">
+                            <div class="value">62%</div>
+                            <h5>Direction féminine</h5>
+                            <p>Équipe de direction INSP</p>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="chartGenre" height="400" style="display: block; box-sizing: border-box; height: 400px; width: 1254px;" width="1254"></canvas>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>Écart gouvernance / élèves</h4>
+                        <p>La direction de l'INSP est majoritairement féminine (62%), tandis que les promotions d'élèves demeurent plus masculines (moyenne 41,3% de femmes). Cette féminisation est néanmoins en progression par rapport aux années 1980-1990.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-origines" class="tab-content">
+                <div class="card">
+                    <h3 class="card-title">Origines scolaires et parcours académiques</h3>
+
+                    <div class="chart-container large">
+                        <canvas id="chartDernierEtablissement" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                    </div>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Type d'établissement</th>
+                                <th>2022-2023</th>
+                                <th>2023-2024</th>
+                                <th>2024-2026</th>
+                                <th>2025-2027</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sciences Po (tous IEP)</td>
+                                <td>44</td>
+                                <td>29</td>
+                                <td>35</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>Universités</td>
+                                <td>13</td>
+                                <td>25</td>
+                                <td>12</td>
+                                <td>16</td>
+                            </tr>
+                            <tr>
+                                <td>IGPDE</td>
+                                <td>9</td>
+                                <td>4</td>
+                                <td>7</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>ENS (toutes)</td>
+                                <td>6</td>
+                                <td>9</td>
+                                <td>10</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>Écoles de commerce</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>7</td>
+                                <td>5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="highlight-box">
+                        <h4>Domination de Sciences Po</h4>
+                        <p>Les IEP constituent le vivier principal de recrutement : 133 élèves sur 306 (43%) ont un IEP comme dernier établissement. En élargissant à l'ensemble du parcours, <strong>71% ont fréquenté Sciences Po</strong> à un moment de leur trajectoire.</p>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="chartParcoursAcademique" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-experience" class="tab-content">
+                <div class="card">
+                    <h3 class="card-title">Expérience professionnelle avant l'INSP</h3>
+                    <p style="text-align: justify;">L'analyse des expériences professionnelles antérieures à l'entrée à l'INSP révèle des profils déjà largement socialisés aux institutions publiques et aux milieux d'élite.</p>
+
+                    <div class="chart-container large">
+                        <canvas id="chartExperiencePro" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                    </div>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Secteur d'expérience</th>
+                                <th>2022-2023</th>
+                                <th>2023-2024</th>
+                                <th>2024-2026</th>
+                                <th>2025-2027</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Administration publique nationale</td>
+                                <td>65%</td>
+                                <td>60%</td>
+                                <td>62%</td>
+                                <td>74%</td>
+                            </tr>
+                            <tr>
+                                <td>Conseil et secteur privé</td>
+                                <td>24%</td>
+                                <td>31%</td>
+                                <td>36%</td>
+                                <td>31%</td>
+                            </tr>
+                            <tr>
+                                <td>International</td>
+                                <td>21%</td>
+                                <td>31%</td>
+                                <td>34%</td>
+                                <td>36%</td>
+                            </tr>
+                            <tr>
+                                <td>Enseignement</td>
+                                <td>16%</td>
+                                <td>27%</td>
+                                <td>34%</td>
+                                <td>20%</td>
+                            </tr>
+                            <tr>
+                                <td>Parlementaire</td>
+                                <td>22%</td>
+                                <td>21%</td>
+                                <td>31%</td>
+                                <td>30%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="highlight-box accent">
+                        <h4>Pré-socialisation institutionnelle</h4>
+                        <p>Environ 65% des élèves ont travaillé dans l'administration publique nationale avant leur admission. Près d'un tiers (23-36% selon les promotions) ont transité par le conseil ou le secteur privé.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-affectations" class="tab-content">
+                <div class="card">
+                    <h3 class="card-title">Affectations de sortie</h3>
+                    <p style="text-align: justify;">Comparaison entre la promotion Molière (ENA 2018-2019) et les promotions INSP Apollinaire (2023) et Baker (2024).</p>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Type d'affectation</th>
+                                <th>Molière 2019 (ENA)</th>
+                                <th>Apollinaire 2023</th>
+                                <th>Baker 2024</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Grands corps (CE, Cour, IGF...)</td>
+                                <td style="color: #8a7b6b; font-weight: 600;">12 (14%)</td>
+                                <td style="color: #8a6b6b; font-weight: 600;">0 (0%)</td>
+                                <td style="color: #8a6b6b; font-weight: 600;">0 (0%)</td>
+                            </tr>
+                            <tr>
+                                <td>Inspections générales</td>
+                                <td>4 (5%)</td>
+                                <td style="color: #8a6b6b;">0 (0%)</td>
+                                <td style="color: #8a6b6b;">0 (0%)</td>
+                            </tr>
+                            <tr>
+                                <td>Juridictions admin. (TA, CAA)</td>
+                                <td>8 (10%)</td>
+                                <td>7 (7%)</td>
+                                <td>≈2 (2%)</td>
+                            </tr>
+                            <tr>
+                                <td>Corps préfectoral</td>
+                                <td>9 (11%)</td>
+                                <td>4 (4%)</td>
+                                <td>4 (5%)</td>
+                            </tr>
+                            <tr style="background: var(--light-bg); font-weight: 600;">
+                                <td>Administrations centrales</td>
+                                <td>43 (52%)</td>
+                                <td>78 (77%)</td>
+                                <td>79 (90%)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="chart-container large">
+                        <canvas id="chartAffectations" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                    </div>
+
+                    <div class="highlight-box accent">
+                        <h4>Rupture majeure : disparition des grands corps</h4>
+                        <p>Les grands corps, qui captaient 14% des élèves en 2019, ont totalement disparu des affectations INSP. Les administrations centrales absorbent désormais 90% des administrateurs d'État en sortie d'école.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: CONCOURS & SCOLARITÉ -->
+        <section id="concours" class="section">
+            <h2 class="section-title">Concours et scolarité</h2>
+
+            <div class="tabs">
+                <button class="tab-btn" onclick="openTab(event, &#39;tab-evolution&#39;)">Évolution des concours</button>
+                <button class="tab-btn" onclick="openTab(event, &#39;tab-epreuves&#39;)">Épreuves 2024</button>
+                <button class="tab-btn" onclick="openTab(event, &#39;tab-scolarite&#39;)">Classement de sortie</button>
+                <button class="tab-btn active" onclick="openTab(event, &#39;tab-appariement&#39;)">Système d'appariement</button>
+            </div>
+
+            <div id="tab-evolution" class="tab-content">
+                <div class="card">
+                    <h3 class="card-title">Évolution des concours d'entrée (2014-2024)</h3>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-year">2014</span>
+                            <div class="timeline-title">Modèle académique classique</div>
+                            <p class="timeline-desc">Trois compositions écrites (droit public, économie, culture générale), deux notes de synthèse (UE, questions sociales), entretien individuel, deux épreuves orales. Le jury constate un « formatage » des copies.</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <span class="timeline-year">2015</span>
+                            <div class="timeline-title">Première inflexion</div>
+                            <p class="timeline-desc">La dissertation de culture générale devient « question contemporaine ». Introduction de la mise en situation collective avec rôles successifs (exposant, répondant, observateur).</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <span class="timeline-year">2016</span>
+                            <div class="timeline-title">Rapprochement sélection-formation</div>
+                            <p class="timeline-desc">Suppression des options techniques et de l'épreuve écrite de langue. Le dossier de parcours devient fil rouge de l'entretien.</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <span class="timeline-year">2017-2021</span>
+                            <div class="timeline-title">Stabilisation avec ouverture encadrée</div>
+                            <p class="timeline-desc">L'anglais devient l'unique langue étrangère évaluée. Création du concours réservé aux docteurs. Les sujets délaissent la haute théorie pour tester la capacité à arbitrer des conflits de valeurs contemporains.</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <span class="timeline-year">2022-2023</span>
+                            <div class="timeline-title">Transition INSP</div>
+                            <p class="timeline-desc">Régime de transition accentuant la dimension d'actualité : vieillissement, handicap, relation usager-administration, déontologie, transition bas-carbone.</p>
+                        </div>
+
+                        <div class="timeline-item highlight">
+                            <span class="timeline-year">2024</span>
+                            <div class="timeline-title">Révision profonde</div>
+                            <p class="timeline-desc">Suppression des compositions au profit de notes opérationnelles. Système majeure/mineure (droit/économie). Nouveau cas pratique transition écologique/numérique. Doublement du coefficient de mise en situation collective (3→6).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-epreuves" class="tab-content">
+                <div class="card">
+                    <h3 class="card-title">Structure des épreuves 2024</h3>
+
+                    <h4 style="margin: 16px 0; color: var(--primary);">Admissibilité (écrits)</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Épreuve</th>
+                                <th>Format</th>
+                                <th>Coefficient</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Question contemporaine</td>
+                                <td>Note de réflexion</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Droit public (majeure ou mineure)</td>
+                                <td>Note opérationnelle</td>
+                                <td>4 ou 2</td>
+                            </tr>
+                            <tr>
+                                <td>Économie (majeure ou mineure)</td>
+                                <td>Note opérationnelle</td>
+                                <td>2 ou 4</td>
+                            </tr>
+                            <tr>
+                                <td>Cas pratique (transition éco./num.)</td>
+                                <td>Analyse de cas</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>QRC (finances, social, Europe, international)</td>
+                                <td>Questions à réponses courtes</td>
+                                <td>4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4 style="margin: 24px 0 16px; color: var(--primary);">Admission (oraux)</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Épreuve</th>
+                                <th>Format</th>
+                                <th>Coefficient</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: var(--light-bg);">
+                                <td><strong>Mise en situation collective</strong></td>
+                                <td>Discussion de groupe avec rôles</td>
+                                <td><strong>6</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Entretien individuel</td>
+                                <td>Entretien sur dossier</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Langue vivante (anglais)</td>
+                                <td>Oral</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="chart-container">
+                        <canvas id="chartCoefficientsOraux" height="400" style="display: block; box-sizing: border-box; height: 400px; width: 1254px;" width="1254"></canvas>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>Bascule symbolique</h4>
+                        <p>Le doublement du coefficient de la mise en situation collective (de 3 à 6) et la réduction de l'entretien individuel (de 6 à 3) marquent un rééquilibrage au profit des compétences collaboratives.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-scolarite" class="tab-content">
+                <div class="card">
+                    <h3 class="card-title">Évaluation et classement de sortie (promotions 2021-2024)</h3>
+                    
+                    <p style="margin-bottom: 16px; text-align: justify;">Ce tableau présente la structure du <strong>classement de sortie</strong> tel qu'il était appliqué aux promotions Tillion (2021-22) à Baker (2023-24). À compter de la promotion Victor (2024-26), ce système est remplacé par une procédure d'appariement présentée dans l'onglet suivant.</p>
+                    
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Catégorie</th>
+                                <th>Sous-composante</th>
+                                <th>Coef.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="4"><strong>Stages (39)</strong></td>
+                                <td>Stage Préfecture + Entreprise</td>
+                                <td>22</td>
+                            </tr>
+                            <tr>
+                                <td>Stage Ambassade</td>
+                                <td>11</td>
+                            </tr>
+                            <tr>
+                                <td>Oral Stage</td>
+                                <td>6</td>
+                            </tr>
+                            <tr style="background: var(--light-bg);">
+                                <td><strong>Total Stages</strong></td>
+                                <td><strong>39</strong></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="4"><strong>Mises en situation (33)</strong></td>
+                                <td>Conception Politiques Publiques</td>
+                                <td>11</td>
+                            </tr>
+                            <tr>
+                                <td>Pilotage des Transformations</td>
+                                <td>11</td>
+                            </tr>
+                            <tr>
+                                <td>Mission Essentielle de l'État</td>
+                                <td>11</td>
+                            </tr>
+                            <tr style="background: var(--light-bg);">
+                                <td><strong>Total Mises en situation</strong></td>
+                                <td><strong>33</strong></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="7"><strong>Autres Modules (28)</strong></td>
+                                <td>Mission Collective</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>Rapport individuel d'expertise (RIEX)</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>Première Langue Vivante (LV1)</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>Seconde Langue Vivante (LV2)</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Sport</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Assiduité</td>
+                                <td>1</td>
+                            </tr>
+                            <tr style="background: var(--light-bg);">
+                                <td><strong>Total Autres Modules</strong></td>
+                                <td><strong>28</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="chart-container">
+                        <canvas id="chartCoefficientsScolarite" height="400" style="display: block; box-sizing: border-box; height: 400px; width: 1254px;" width="1254"></canvas>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>Du classement à l'appariement</h4>
+                        <p>Cette structure d'évaluation déterminait le classement de sortie des élèves. Les stages représentaient 39% du coefficient total, suivis des mises en situation (33%). Ce classement conditionnait l'accès aux différents postes et corps. À partir de 2024, ce mécanisme est remplacé par un système d'appariement fondé sur des entretiens et des préférences croisées (voir onglet suivant).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-appariement" class="tab-content active">
+                <div class="card">
+                    <h3 class="card-title">Suppression du classement et système d'appariement</h3>
+                    
+                    <p style="margin-bottom: 16px;">L'ordonnance du 2 juin 2021 formalise la disparition de l'ENA et la naissance de l'INSP. Le classement de sortie, pilier symbolique de l'institution depuis 1945, est remplacé par un système d'appariement profil/poste qui redéfinit en profondeur les modalités d'affectation des futurs administrateurs d'État.</p>
+                    
+                    <p style="margin-bottom: 20px;">Cette transformation s'inscrit dans une logique de « transversalisation managériale » où la montée en puissance de l'évaluation, du contrôle et des fonctions RH recompose l'organisation de l'État autour de dispositifs affranchis des cloisonnements ministériels traditionnels.</p>
+                    
+                    <div class="comparison-grid">
+                        <div class="comparison-box old">
+                            <h4>Ancien système (ENA, 1945-2024)</h4>
+                            <ul>
+                                <li>Classement de sortie sur 79 ans d'existence</li>
+                                <li>Hiérarchie des notes comme critère unique</li>
+                                <li>Accès direct aux grands corps par le rang</li>
+                                <li>Objectivité relative mais socialement acceptée</li>
+                                <li>Transparence du mécanisme d'allocation</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-box new">
+                            <h4>Nouveau système (INSP, 2024)</h4>
+                            <ul>
+                                <li>Appariement fondé sur profils et préférences</li>
+                                <li>Fiches de poste détaillées par les administrations</li>
+                                <li>Préférences croisées élèves/employeurs</li>
+                                <li>Entretiens de recrutement avec les administrations</li>
+                                <li>CV anonymisés (en principe)</li>
+                                <li>Rapport de force potentiellement plus équitable</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>Principe du nouveau dispositif</h4>
+                        <p>Le nouveau dispositif repose sur une logique d'adéquation entre compétences et besoins plutôt que sur une hiérarchie des notes. Les inspections générales (Finances, Administration, Affaires sociales) sont transformées en emplois à durée déterminée de 7 à 10 ans, rompant avec le modèle de rente statutaire. L'évaluation continue et les parcours modulables remplacent la logique du rang de sortie comme déterminant principal de la trajectoire professionnelle.</p>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-item active">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>Arguments en faveur du nouveau système</span>
+                                <span class="accordion-icon">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Selon le rapport Thiriez, la suppression du classement évite « les risques de cooptation ou de favoritisme » et permet un meilleur appariement entre les profils des élèves et les besoins des administrations.</p>
+                                    <p>Un élève de la promotion Baker y perçoit « un système où l'on pourrait dire plus facilement 'non' et avoir un choix plus élargi, un rapport de force plus équitable avec les administrations ». La diversification des parcours possibles et la valorisation des compétences spécifiques plutôt que du rang constituent des arguments régulièrement avancés.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item active">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>Risques et zones d'incertitude</span>
+                                <span class="accordion-icon">▼</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>L'attribution des postes par entretiens fait disparaître l'objectivité relative du classement. Bien que les résultats reposent déjà sur la subjectivité des jurys, le principe classant constituait un cadre commun socialement accepté, une règle du jeu connue de tous.</p>
+                                    <p>Dans le système d'appariement, l'anonymisation des CV ne suffira sans doute pas à empêcher les administrations de « choisir des candidats qui leur ressemblent ». Les logiques d'exclusion risquent de se déplacer vers d'autres biais : capital relationnel, présentation de soi, hexis corporelle, voire apparence physique. La capacité à « se vendre » lors des entretiens pourrait avantager certains profils au détriment d'autres, reproduisant sous une forme différente les mécanismes de sélection sociale.</p>
+                                    <p>Le véritable enjeu viendra avec l'évaluation des premières promotions expérimentant pleinement la réforme, ce qui permettra d'analyser si la suppression du classement aura satisfait la demande de rupture sans compromettre la qualité de l'action publique ni déplacer les inégalités vers des registres moins visibles mais tout aussi structurants.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: CONCLUSION -->
+        <section id="conclusion" class="section active">
+            <h2 class="section-title">Conclusion et perspectives</h2>
+
+            <div class="card">
+                <h3 class="card-title">Synthèse des résultats</h3>
+                <p>Bien que les proclamations gouvernementales entourant l'abolition de l'ENA en 2021 aient mobilisé un registre dramaturgique – thuriféraires et contempteurs prophétisant métamorphose salvatrice ou déliquescence structurelle –, l'examen empirique de la transmutation ENA-INSP révèle la <strong>persistance d'un ordre fondé sur la différenciation statutaire</strong>, en dépit de certaines transformations formelles.</p>
+                <p>L'étude des flux d'admission a mis en lumière la permanence d'une <strong>concentration scolaire</strong> que l'on comprend à l'aune du principe d'homophilie propre aux grandes écoles. Parallèlement, l'archéologie des discours produits par l'institution fait apparaître une rhétorique saturée d'appels à l'« innovation », aux « compétences », à la « diversité », qui ne représentent pas une rupture paradigmatique, mais dont le <strong>vocabulaire managérial agit comme indicateur de surface</strong>.</p>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Une technocratie de flux</h3>
+                <p>Ce que révèle l'analyse à l'échelle étatique, c'est bien l'affirmation progressive d'un <strong>mode technocratique reconfiguré</strong> : moins ancré dans les positions que fluide dans les parcours ; moins modelé par les titres que par la maîtrise de réseaux transversaux ; moins appuyé sur le droit que sur le contrôle des environnements numériques.</p>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-box old">
+                        <h4>Ancien modèle</h4>
+                        <ul>
+                            <li><strong>Temps :</strong> carrière linéaire</li>
+                            <li><strong>Espace :</strong> ancrage administratif</li>
+                            <li><strong>Savoir :</strong> culture générale</li>
+                            <li><strong>Légitimité :</strong> rang de sortie</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-box new">
+                        <h4>Nouveau modèle</h4>
+                        <ul>
+                            <li><strong>Temps :</strong> projet temporaire</li>
+                            <li><strong>Espace :</strong> transversalité sectorielle</li>
+                            <li><strong>Savoir :</strong> expertise ciblée</li>
+                            <li><strong>Légitimité :</strong> compétences managériales</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p style="margin-top: 20px;">Semble ainsi se profiler une nouvelle grammaire de l'efficacité, où dominent <strong>mobilité, réactivité et adaptabilité</strong>, au détriment de la cohérence, de la continuité et de la vision stratégique qui caractérisaient l'ancien ethos d'État.</p>
+
+                <div class="highlight-box">
+                    <h4>Intuition provisoire</h4>
+                    <p>La disparition de l'ENA agit comme <strong>révélateur</strong> en reflétant les restructurations internes qui traversent l'édifice administratif. L'INSP constitue davantage l'expression située des enjeux traversant la haute fonction publique qu'une tentative pleinement structurée pour y répondre. L'avenir de la haute administration française se joue sans doute moins dans les amphithéâtres strasbourgeois que dans les open spaces des ministères, où se croisent les héritages du service public et les logiques importées du privé.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Perspectives de recherche</h3>
+                <p><strong>Plusieurs prolongements sont envisageables :</strong> analyse comparative avec d'autres écoles de service public (INET, EHESP), étude longitudinale des carrières des élèves INSP, analyse de la réception médiatique de la réforme, étude des discours des anciens élèves ENA sur la transformation.</p>
+                
+                <div class="highlight-box doctoral">
+                    <h4>Projet doctoral en cours : « Gouverner l'État numérisé à l'épreuve des algorithmes »</h4>
+                    <p>Ce mémoire de recherche se prolonge par un <strong>projet de thèse actuellement en préparation</strong> au médialab de Sciences Po, sous la direction pressentie de Dominique Cardon. Ce projet doctoral examine précisément comment la généralisation des systèmes algorithmiques reconfigure le sommet de l'appareil bureaucratique français.</p>
+                    <p style="margin-top: 12px;">La thèse interroge les mécanismes par lesquels l'autorité décisionnelle, les régimes d'imputabilité et les répertoires de légitimation se redistribuent entre <strong>élites administratives traditionnelles</strong>, <strong>profils techniques internalisés</strong> et <strong>acteurs externalisés</strong> (prestataires, cabinets de conseil). Elle mobilise l'hypothèse d'un <strong>« capital algorithmique »</strong> – défini comme l'ensemble des ressources cognitives, relationnelles et symboliques donnant à certains acteurs des prises différentielles sur les instruments algorithmiques de l'État (données, paramètres, métriques, API, contrôles de conformité).</p>
+                    <p style="margin-top: 12px;">L'enquête, mixte et séquentielle, articulera une <strong>prosopographie</strong> du cercle dirigeant de la transformation numérique de l'État (DINUM, DSI ministérielles, cabinets), une <strong>cartographie des chaînes de décision et d'externalisation</strong> autour de dispositifs comme FranceConnect et Parcoursup, et des <strong>entretiens approfondis</strong> (30 à 40) avec les acteurs clés. Une comparaison internationale avec le Royaume-Uni (Government as a Platform) permettra de situer le cas français.</p>
+                    <p style="margin-top: 12px;">Ce projet prolonge l'analyse de la transition ENA → INSP en l'inscrivant dans une réflexion plus large sur la <strong>transformation numérique de l'État</strong> et l'émergence de nouvelles formes d'expertise bureaucratique. Il vise à documenter empiriquement la réarticulation des hiérarchies et la redéfinition des frontières de la redevabilité dans un État gouverné par des systèmes sociotechniques, interrogeant les reconfigurations de pouvoir que produit l'écart entre algorithmisation croissante de l'action publique et appropriation différenciée de ces outils par les élites administratives.</p>
+                </div>
+
+                <p style="margin-top: 20px; font-style: italic; text-align: center;">« Étudier la manière dont une société recrute et forme ses hauts fonctionnaires revient à comprendre ce qu'elle attend de ceux qui la gouvernent, sonder le lien qu'elle tisse avec l'idée de puissance publique, et discerner, à travers les métamorphoses du service de l'État, une part de ce que la République continue de projeter d'elle-même. »</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>Portfolio de recherche en sociologie des institutions et des élites administratives</p>
+        <p style="margin-top: 8px;"><strong>Thibault Lalut</strong> – Diplômé du Master 2 Sociologie à l'EHESS – Juin 2025</p>
+        <p style="margin-top: 16px; font-size: 0.9rem; opacity: 0.8;">
+            <a href="mailto:thibault.lalut@ehess.fr">thibault.lalut@ehess.fr</a> | 
+            <a href="https://www.linkedin.com/in/thibault-lalut/" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Navigation
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Tabs
+        function openTab(evt, tabId) {
+            const section = evt.target.closest('.section');
+            section.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            section.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            evt.target.classList.add('active');
+        }
+
+        // Accordion
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            item.classList.toggle('active');
+        }
+
+        // Chart.js defaults
+        Chart.defaults.font.family = "'Inter', sans-serif";
+        Chart.defaults.color = '#2d3a45';
+
+        // Palette sobre et désaturée
+        const colors = {
+            slate: '#6b7a8a',
+            taupe: '#8a7b6b',
+            mauve: '#7a6b8a',
+            olive: '#6b7a6b',
+            rust: '#8a6b6b',
+            steel: '#5a6b7a'
+        };
+
+        const commonOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: { padding: 15, font: { size: 12 } }
+                }
+            }
+        };
+
+        // Chart: Termes clés
+        new Chart(document.getElementById('chartTermesCles'), {
+            type: 'line',
+            data: {
+                labels: ['1998-2005', '2005-2018', '2018-2019', '2019-2022', '2022-2025'],
+                datasets: [
+                    {
+                        label: 'compétences',
+                        data: [0.8, 1.2, 0.5, 1.8, 6.8],
+                        borderColor: colors.olive,
+                        backgroundColor: colors.olive + '20',
+                        borderWidth: 3,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'concours',
+                        data: [22, 45, 120, 95, 105],
+                        borderColor: colors.slate,
+                        backgroundColor: colors.slate + '20',
+                        borderWidth: 3,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'élite',
+                        data: [2.3, 3.8, 2.4, 1.2, 0.2],
+                        borderColor: colors.taupe,
+                        backgroundColor: colors.taupe + '20',
+                        borderWidth: 3,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'innovation',
+                        data: [4, 3.5, 2, 9, 11],
+                        borderColor: colors.mauve,
+                        backgroundColor: colors.mauve + '20',
+                        borderWidth: 3,
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Fréquence pour 10 000 mots' }
+                    }
+                }
+            }
+        });
+
+        // Chart: Groupes conceptuels
+        new Chart(document.getElementById('chartGroupesConceptuels'), {
+            type: 'line',
+            data: {
+                labels: ['1998-2005', '2005-2018', '2018-2019', '2019-2022', '2022-2025'],
+                datasets: [
+                    {
+                        label: 'Élitaire & Sélection',
+                        data: [120, 150, 180, 95, 35],
+                        borderColor: colors.taupe,
+                        backgroundColor: colors.taupe + '20',
+                        borderWidth: 2,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Managérial & Moderne',
+                        data: [35, 40, 45, 68, 115],
+                        borderColor: colors.slate,
+                        backgroundColor: colors.slate + '20',
+                        borderWidth: 2,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Ouverture & Diversité',
+                        data: [40, 95, 120, 85, 265],
+                        borderColor: colors.olive,
+                        backgroundColor: colors.olive + '20',
+                        borderWidth: 2,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Continuité Institutionnelle',
+                        data: [70, 85, 160, 75, 195],
+                        borderColor: colors.mauve,
+                        backgroundColor: colors.mauve + '20',
+                        borderWidth: 2,
+                        tension: 0.3
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { 
+                            display: true, 
+                            text: 'Fréquence cumulée normalisée (pour 10 000 mots)' 
+                        }
+                    }
+                }
+            }
+        });
+
+        // Chart: Architecture
+        new Chart(document.getElementById('chartArchitecture'), {
+            type: 'bar',
+            data: {
+                labels: ['Concours', 'Scolarité', 'International', 'Compétences', 'Diversité', 'Classement'],
+                datasets: [
+                    {
+                        label: 'ENA (2010-2021)',
+                        data: [85, 70, 45, 15, 20, 60],
+                        backgroundColor: colors.taupe
+                    },
+                    {
+                        label: 'INSP (2022-2025)',
+                        data: [75, 65, 80, 90, 85, 5],
+                        backgroundColor: colors.mauve
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { 
+                            display: true, 
+                            text: ['Visibilité relative (nb pages × profondeur,', 'normalisé 0-100)']
+                        }
+                    }
+                }
+            }
+        });
+
+        // Chart: Genre
+        new Chart(document.getElementById('chartGenre'), {
+            type: 'bar',
+            data: {
+                labels: ['Apollinaire (2022-23)', 'Baker (2023-24)', 'Victor (2024-26)', 'Halimi (2025-27)'],
+                datasets: [
+                    {
+                        label: 'Femmes',
+                        data: [42.7, 41.6, 39.8, 41.0],
+                        backgroundColor: colors.olive
+                    },
+                    {
+                        label: 'Hommes',
+                        data: [57.3, 58.4, 60.2, 59.0],
+                        backgroundColor: colors.slate
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    x: { stacked: true },
+                    y: { stacked: true, max: 100 }
+                }
+            }
+        });
+
+        // Chart: Dernier établissement
+        new Chart(document.getElementById('chartDernierEtablissement'), {
+            type: 'bar',
+            data: {
+                labels: ['Sciences Po', 'Universités', 'IGPDE', 'ENS', 'Commerce', 'Univ. intern.'],
+                datasets: [
+                    {
+                        label: '2022-2023',
+                        data: [44, 13, 9, 6, 4, 3],
+                        backgroundColor: colors.slate
+                    },
+                    {
+                        label: '2023-2024',
+                        data: [29, 25, 4, 9, 5, 3],
+                        backgroundColor: colors.steel
+                    },
+                    {
+                        label: '2024-2026',
+                        data: [35, 12, 7, 10, 7, 3],
+                        backgroundColor: colors.olive
+                    },
+                    {
+                        label: '2025-2027',
+                        data: [24, 16, 3, 4, 5, 1],
+                        backgroundColor: colors.mauve
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Nombre d\'élèves' }
+                    }
+                }
+            }
+        });
+
+        // Chart: Parcours académique
+        new Chart(document.getElementById('chartParcoursAcademique'), {
+            type: 'bar',
+            data: {
+                labels: ['IEP', 'Univ. intern.', 'Univ. IDF', 'ENS', 'Commerce', 'CPGE'],
+                datasets: [
+                    {
+                        label: '2022-2023',
+                        data: [72, 52, 39, 11, 12, 15],
+                        backgroundColor: colors.slate
+                    },
+                    {
+                        label: '2023-2024',
+                        data: [60, 49, 52, 22, 18, 17],
+                        backgroundColor: colors.steel
+                    },
+                    {
+                        label: '2024-2026',
+                        data: [70, 48, 33, 15, 22, 20],
+                        backgroundColor: colors.olive
+                    },
+                    {
+                        label: '2025-2027',
+                        data: [61, 41, 48, 13, 20, 21],
+                        backgroundColor: colors.mauve
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Pourcentage d\'élèves (%)' }
+                    }
+                }
+            }
+        });
+
+        // Chart: Expérience pro
+        new Chart(document.getElementById('chartExperiencePro'), {
+            type: 'bar',
+            data: {
+                labels: ['Admin. publique', 'Conseil & privé', 'International', 'Enseignement', 'Parlementaire'],
+                datasets: [
+                    {
+                        label: '2022-2023',
+                        data: [65, 24, 21, 16, 22],
+                        backgroundColor: colors.slate
+                    },
+                    {
+                        label: '2023-2024',
+                        data: [60, 31, 31, 27, 21],
+                        backgroundColor: colors.steel
+                    },
+                    {
+                        label: '2024-2026',
+                        data: [62, 36, 34, 34, 31],
+                        backgroundColor: colors.olive
+                    },
+                    {
+                        label: '2025-2027',
+                        data: [74, 31, 36, 20, 30],
+                        backgroundColor: colors.mauve
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: { display: true, text: 'Pourcentage d\'élèves (%)' }
+                    }
+                }
+            }
+        });
+
+        // Chart: Affectations
+        new Chart(document.getElementById('chartAffectations'), {
+            type: 'bar',
+            data: {
+                labels: ['Grands corps', 'Inspections gén.', 'Juridictions', 'Corps préfectoral', 'Ville Paris', 'Admin. centrales'],
+                datasets: [
+                    {
+                        label: 'Molière 2019 (ENA)',
+                        data: [14, 5, 10, 11, 4, 52],
+                        backgroundColor: colors.slate
+                    },
+                    {
+                        label: 'Apollinaire 2023',
+                        data: [0, 0, 7, 4, 3, 77],
+                        backgroundColor: colors.steel
+                    },
+                    {
+                        label: 'Baker 2024',
+                        data: [0, 0, 2, 5, 1, 90],
+                        backgroundColor: colors.taupe
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Pourcentage (%)' }
+                    }
+                }
+            }
+        });
+
+        // Chart: Coefficients oraux
+        new Chart(document.getElementById('chartCoefficientsOraux'), {
+            type: 'bar',
+            data: {
+                labels: ['Mise en situation collective', 'Entretien individuel', 'Langue vivante'],
+                datasets: [
+                    {
+                        label: 'Avant 2024',
+                        data: [3, 6, 2],
+                        backgroundColor: colors.taupe
+                    },
+                    {
+                        label: '2024',
+                        data: [6, 3, 2],
+                        backgroundColor: colors.olive
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Coefficient' } }
+                }
+            }
+        });
+
+        // Chart: Coefficients scolarité
+        new Chart(document.getElementById('chartCoefficientsScolarite'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Stages (39)', 'Mises en situation (33)', 'Autres modules (28)'],
+                datasets: [{
+                    data: [39, 33, 28],
+                    backgroundColor: [colors.taupe, colors.mauve, colors.olive]
+                }]
+            },
+            options: {
+                ...commonOptions,
+                plugins: {
+                    legend: { position: 'right' }
+                }
+            }
+        });
+    </script>
+
+
+</body></html>
